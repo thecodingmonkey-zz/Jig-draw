@@ -1,0 +1,4 @@
+alternate between subclues
+button to change clue
+CSS to make interface look cooler
+put words in separate file

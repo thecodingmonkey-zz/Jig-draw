@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link href="css/style.css" rel="stylesheet" media="screen">
   <title>Jig-draw flashcards</title>
 </head>
 <body>
@@ -10,6 +11,7 @@
   </div>
   <div id="majorWord">Foo</div>
   <div id="minorWord">Bar</div>
+  <script src="words.js"/>
   <script language="javascript">
   var words = [
   // format: first element is the main word, all other elements are clues
@@ -21,8 +23,11 @@
     ['universe', 'milky way', 'spaceship', 'alien', 'stars', 'earth', 'sun', 'jupiter']
   ];
 
+//  var library = require('./words.js');
+
   window.onload = function() {
 //    alert('hello');
+    getNewWord();
     window.setTimeout(window.update, 1000);
   };
 
@@ -45,12 +50,32 @@
     window.setTimeout(window.update, 1000);
   };
 
+  var currentWord;
+
   function getNewWord() {
     var numWords = words.length;
     var newWord = Math.floor(Math.random() * numWords);
+    currentWord = newWord;
 
     document.getElementById('majorWord').innerHTML = words[newWord][0];
     document.getElementById('minorWord').innerHTML = words[newWord][1];
+
+  }
+
+  window.cycleClues = function() {
+    var currentMajorWord = document.getElementById('majorWord').innerHTML;
+    var currentMinorWord = document.getElementById('minorWord').innerHTML;
+
+
+    var currentWord = dictionary.words.indexOf(currentMajorWord);
+    var currentClue = dictionary.words[currentWord].indexOf(currentMinorWord);
+
+    currentClue++;
+    if (currentClue >= dictionary.words[currentWord].length) {
+      currentClue = 1;
+    }
+
+    document.getElementById('minorWord').innerHTML = library.words[currentWord][currentClue];
 
   }
   </script>
