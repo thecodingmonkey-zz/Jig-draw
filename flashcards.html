@@ -11,6 +11,8 @@
   window.onload = function() {
     window.setTimeout(function() {window.update();}, 1000);
     window.secSinceLastClue = 0;
+    window.playerScore0 = 0;
+    window.playerScore1 = 0;
 
     window.update = function() {
       var timer = document.getElementById('timer').innerHTML;
@@ -79,6 +81,17 @@
 
       secSinceLastClue = 0;
     }
+    window.incrementPlayerScore = function(player) {
+      if (player == 0) {
+        window.playerScore0++;
+        document.getElementById('player0Score').innerHTML = window.playerScore0;
+      }
+      else {
+        window.playerScore1++;
+        document.getElementById('player1Score').innerHTML = window.playerScore1;
+      }
+      window.getNewWord();
+    }
   }
   </script>
 </head>
@@ -97,16 +110,20 @@
       <nav class="group">
          <!-- <ul>
           <li class="button" onclick="javascript:window.getNewWord();">New Word</li>
+          <li class="button" onclick="javascript:window.getNewWord();">New Word</li>
           <li class="button" onclick="javascript:window.cycleClues();">New Clue</li>
         </ul> -->
-        <span class="button left" onclick="javascript:window.getNewWord();">Correct!</span>
-          <span class="button right" onclick="javascript:window.cycleClues();">New Clue</span>
-        </nav>
+        <span class="button left" onclick="javascript:window.incrementPlayerScore(0);">Player 1</span>
+        <span id="player0Score" class="left">0</span>
+        <span class="button right" onclick="javascript:window.incrementPlayerScore(1);">Player 2</span>
+        <span id="player1Score" class="right">0</span>
+      </nav>
     </header>
     <div class="container">
       <div id="majorWord">Foo</div>
       <div id="minorWord">Bar</div>
     </div>
+  <span class="button" onclick="javascript:window.cycleClues();">New Clue</span>
   </div>
 </body>
 </html>
