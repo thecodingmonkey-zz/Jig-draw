@@ -6,13 +6,24 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
   <title>Jig-draw flashcards</title>
-  <script src="words.js"></script>
+  <script src="words-test.js"></script>
   <script language="javascript">
   window.onload = function() {
     window.setTimeout(function() {window.update();}, 1000);
     window.secSinceLastClue = 0;
     window.playerScore0 = 0;
     window.playerScore1 = 0;
+    window.timerDuration = 5;
+//    console.log('Testing');
+    window.getParameterByName = function(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    window.mode = window.getParameterByName('mode');
+    if (window.mode == 1)
+      window.timerDuration = 3;
 
     window.update = function() {
       var timer = document.getElementById('timer').innerHTML;
@@ -30,7 +41,7 @@
         window.setTimeout(window.update, 10000);
         return;
       }
-      else if (timer % 5 === 0 && timer < 60) {
+      else if (timer % window.timerDuration === 0 && timer < 60) {
         window.playsound('ding');
       }
 
@@ -56,12 +67,20 @@
     var currentWord;
 
     window.getNewWord = function() {
-      var numWords = window.library.words.length;
+      var numWords = (window.mode == 1) ?
+        window.library.words.length :
+        window.library.words_with_clues.length;
       var newWord = Math.floor(Math.random() * numWords);
       currentWord = newWord;
 
-      document.getElementById('majorWord').innerHTML = library.words[newWord][0];
-      document.getElementById('minorWord').innerHTML = library.words[newWord][1];
+      document.getElementById('majorWord').innerHTML =
+        (window.mode == 1) ?
+        library.words[newWord][0] :
+        library.words_with_clues[newWord][0];
+      document.getElementById('minorWord').innerHTML =
+        (window.mode == 1) ?
+        '':
+        library.words_with_clues[newWord][1];
 
       document.getElementById('timer').innerHTML = '61';
 
@@ -72,26 +91,29 @@
 
 
     window.cycleClues = function() {
+      if (window.mode == 1)
+        return;
+
       var currentMajorWord = document.getElementById('majorWord').innerHTML;
       var currentMinorWord = document.getElementById('minorWord').innerHTML;
 
       var i;  // find where the given word is in the dictionary of word-clues
-      for(i=0; i < window.library.words.length; i++) {
-        if (window.library.words[i][0] == currentMajorWord)
+      for(i=0; i < window.library.words_with_clues.length; i++) {
+        if (window.library.words_with_clues[i][0] == currentMajorWord)
           break;
       }
 
       var currentWord = i;
 //      var currentWord = window.library.words.indexOf(currentMajorWord);
 //      console.log(currentMajorWord, currentWord);
-      var currentClue = window.library.words[currentWord].indexOf(currentMinorWord);
+      var currentClue = window.library.words_with_clues[currentWord].indexOf(currentMinorWord);
 
       currentClue++;
-      if (currentClue >= window.library.words[currentWord].length) {
+      if (currentClue >= window.library.words_with_clues[currentWord].length) {
         currentClue = 1;
       }
 
-      document.getElementById('minorWord').innerHTML = window.library.words[currentWord][currentClue];
+      document.getElementById('minorWord').innerHTML = window.library.words_with_clues[currentWord][currentClue];
 
       secSinceLastClue = 0;
     }
