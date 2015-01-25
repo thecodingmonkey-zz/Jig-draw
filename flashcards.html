@@ -19,16 +19,24 @@
       timer = Math.max(0, parseInt(timer) - 1);
       document.getElementById('timer').innerHTML = timer;
 
+      if (timer <= 0) {
+        window.playsound('woopow');
+        document.getElementById('timer').innerHTML = 60;
+//        alert('Time is up!');
+        window.getNewWord();
+        window.setTimeout(window.update, 10000);
+        return;
+      }
+      else if (timer % 5 === 0) {
+        window.playsound('ding');
+      }
+
       if (timer < 10) {
         document.getElementById('timer').style.color = 'red';
       } else {
         document.getElementById('timer').style.color = 'black';      
       }
 
-      if (timer <= 0) {
-        window.getNewWord();
-        document.getElementById('timer').innerHTML = 60;
-      }
 
       secSinceLastClue++;
       if (secSinceLastClue >= 10) {
@@ -69,7 +77,7 @@
 
       var currentWord = i;
 //      var currentWord = window.library.words.indexOf(currentMajorWord);
-      console.log(currentMajorWord, currentWord);
+//      console.log(currentMajorWord, currentWord);
       var currentClue = window.library.words[currentWord].indexOf(currentMinorWord);
 
       currentClue++;
@@ -96,14 +104,32 @@
     document.onkeydown = function(e) {
       e = e || window.event;
       switch(e.which || e.keyCode) {
-        case 37:
-//          alert('left');
+//        case 32:
+        case 32:
+          window.playsound('ding');
+          break;
+        case 38:
+        case 40:
+          alert('pause');
+          break;
+        case 37:  // left
           window.incrementPlayerScore(0);
           break;
-        case 39:
+        case 39:  // right
           window.incrementPlayerScore(1);
-//          alert('right');
           break;
+      }
+    }
+
+    window.playsound = function(sound) {
+      var audio;
+      if (sound == 'ding') {
+        audio = new Audio('./sounds/ding.wav');
+        audio.play();
+      }
+      if (sound == 'woopow') {
+        audio = new Audio('./sounds/woopow.wav');
+        audio.play();
       }
     }
   }
