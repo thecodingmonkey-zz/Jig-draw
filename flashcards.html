@@ -9,7 +9,6 @@
   <script src="words.js"></script>
   <script language="javascript">
   window.onload = function() {
-//    window.getNewWord();
     window.setTimeout(function() {window.update();}, 1000);
 
     window.update = function() {
@@ -43,28 +42,38 @@
 
     };
 
-    // window.cycleClues = function() {
-    //   var currentMajorWord = document.getElementById('majorWord').innerHTML;
-    //   var currentMinorWord = document.getElementById('minorWord').innerHTML;
+    window.getNewWord();
 
 
-    //   var currentWord = dictionary.words.indexOf(currentMajorWord);
-    //   var currentClue = dictionary.words[currentWord].indexOf(currentMinorWord);
+    window.cycleClues = function() {
+      var currentMajorWord = document.getElementById('majorWord').innerHTML;
+      var currentMinorWord = document.getElementById('minorWord').innerHTML;
 
-    //   currentClue++;
-    //   if (currentClue >= dictionary.words[currentWord].length) {
-    //     currentClue = 1;
-    //   }
+      var i;
+      for(i=0; i < window.library.words.length; i++) {
+        if (window.library.words[i][0] == currentMajorWord)
+          break;
+      }
 
-    //   document.getElementById('minorWord').innerHTML = library.words[currentWord][currentClue];
+      var currentWord = i;
+//      var currentWord = window.library.words.indexOf(currentMajorWord);
+      console.log(currentMajorWord, currentWord);
+      var currentClue = window.library.words[currentWord].indexOf(currentMinorWord);
 
-    // }
+      currentClue++;
+      if (currentClue >= window.library.words[currentWord].length) {
+        currentClue = 1;
+      }
+
+      document.getElementById('minorWord').innerHTML = window.library.words[currentWord][currentClue];
+
+    }
   }
   </script>
 </head>
 <body>
   <script type="text/javascript">
-  function getNewWord() {
+  function getNewWord() {s
     window.getNewWord();
 
   }
@@ -74,7 +83,7 @@
     <div id="status">
       <span id="timer">60</span>
       <span class="button" onclick="javascript:window.getNewWord();">[New Word]</span>
-      <span class="button" onclick="javascript:window.getNewClue();">[New Clue]</span>
+      <span class="button" onclick="javascript:window.cycleClues();">[New Clue]</span>
 
     </div>
     <div id="majorWord">Foo</div>
