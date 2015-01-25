@@ -24,10 +24,13 @@
         document.getElementById('timer').innerHTML = 60;
 //        alert('Time is up!');
         window.getNewWord();
+//        window.bgaudio.stop();
+        window.bgaudio.pause();
+        window.bgaudio.currentTime = 0;
         window.setTimeout(window.update, 10000);
         return;
       }
-      else if (timer % 5 === 0) {
+      else if (timer % 5 === 0 && timer < 60) {
         window.playsound('ding');
       }
 
@@ -37,6 +40,9 @@
         document.getElementById('timer').style.color = 'black';      
       }
 
+      if (timer == 60) {
+        window.playsound('bgmusic');
+      }
 
       secSinceLastClue++;
       if (secSinceLastClue >= 10) {
@@ -57,7 +63,7 @@
       document.getElementById('majorWord').innerHTML = library.words[newWord][0];
       document.getElementById('minorWord').innerHTML = library.words[newWord][1];
 
-      document.getElementById('timer').innerHTML = '60';
+      document.getElementById('timer').innerHTML = '61';
 
       secSinceLastClue = 0;
     };
@@ -114,9 +120,11 @@
           break;
         case 37:  // left
           window.incrementPlayerScore(0);
+          window.playsound('likeabaws');
           break;
         case 39:  // right
           window.incrementPlayerScore(1);
+          window.playsound('likeabaws');
           break;
       }
     }
@@ -130,6 +138,19 @@
       if (sound == 'woopow') {
         audio = new Audio('./sounds/woopow.wav');
         audio.play();
+      }
+      if (sound == 'bgmusic') {
+        if (window.bgaudio) {
+          window.bgaudio.pause();
+          window.bgaudio.currentTime = 0;
+        }
+        window.bgaudio = new Audio('./sounds/60secRoundMus.wav');
+        window.bgaudio.play();
+      }
+      if (sound == 'likeabaws') {
+        audio = new Audio('./sounds/likeabaws.wav');
+        audio.play();
+
       }
     }
   }
@@ -145,7 +166,7 @@
 
   <header>
     <div id="status" class="group">
-      <span>:</span><span id="timer">60</span>
+      <span>:</span><span id="timer">61</span>
       </div><!--Status div -->
       <nav class="group">
          <!-- <ul>
