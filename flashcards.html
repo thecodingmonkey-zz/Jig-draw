@@ -92,6 +92,20 @@
       }
       window.getNewWord();
     }
+
+    document.onkeydown = function(e) {
+      e = e || window.event;
+      switch(e.which || e.keyCode) {
+        case 37:
+//          alert('left');
+          window.incrementPlayerScore(0);
+          break;
+        case 39:
+          window.incrementPlayerScore(1);
+//          alert('right');
+          break;
+      }
+    }
   }
   </script>
 </head>
