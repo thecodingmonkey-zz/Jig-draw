@@ -10,6 +10,7 @@
   <script language="javascript">
   window.onload = function() {
     window.setTimeout(function() {window.update();}, 1000);
+    window.secSinceLastClue = 0;
 
     window.update = function() {
       var timer = document.getElementById('timer').innerHTML;
@@ -27,6 +28,12 @@
         document.getElementById('timer').innerHTML = 60;
       }
 
+      secSinceLastClue++;
+      if (secSinceLastClue >= 10) {
+        this.cycleClues();
+        secSinceLastClue = 0;
+      }
+
       window.setTimeout(window.update, 1000);
     };
 
@@ -42,6 +49,7 @@
 
       document.getElementById('timer').innerHTML = '60';
 
+      secSinceLastClue = 0;
     };
 
     window.getNewWord();
@@ -51,7 +59,7 @@
       var currentMajorWord = document.getElementById('majorWord').innerHTML;
       var currentMinorWord = document.getElementById('minorWord').innerHTML;
 
-      var i;
+      var i;  // find where the given word is in the dictionary of word-clues
       for(i=0; i < window.library.words.length; i++) {
         if (window.library.words[i][0] == currentMajorWord)
           break;
@@ -69,13 +77,14 @@
 
       document.getElementById('minorWord').innerHTML = window.library.words[currentWord][currentClue];
 
+      secSinceLastClue = 0;
     }
   }
   </script>
 </head>
 <body>
   <script type="text/javascript">
-  function getNewWord() {s
+  function getNewWord() {
     window.getNewWord();
 
   }
