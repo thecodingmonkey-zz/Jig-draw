@@ -138,7 +138,9 @@
           break;
         case 38:
         case 40:
+          window.bgaudio.pause();
           alert('pause');
+          window.bgaudio.play();
           break;
         case 37:  // left
           window.incrementPlayerScore(0);
