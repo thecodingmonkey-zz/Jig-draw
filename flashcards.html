@@ -155,12 +155,13 @@
     }
     window.playWinner = function () {
       var soundFiles = [ 'likeabaws', 'woopow' ];
-      var index = Math.floor(Math.random() * soundFiles.length);
-      var audio = new Audio('./sounds/'+soundFiles[index]+'.wav');
-      audio.play();
+      window.playAudio(soundFiles);
     }
     window.playLoser = function () {
       var soundFiles = [ 'Deadmario', 'Stupid' ];
+      window.playAudio(soundFiles);
+    }
+    window.playAudio = function (soundFiles) {
       var index = Math.floor(Math.random() * soundFiles.length);
       var audio = new Audio('./sounds/'+soundFiles[index]+'.wav');
       audio.play();
