@@ -1,5 +1,5 @@
 /* CSS */
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
 
 * {
   -webkit-box-sizing: border-box;
@@ -14,14 +14,26 @@
 }
 
 body {
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Permanent Marker', cursive;
   font-size: 18px;
   /*background: #080808;
   color: #fff;*/
 }
 
+.logo {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+
 header {
   /*background: #fff;*/
+}
+
+.row {
+  display: block;
+  margin: 0 auto;
+  top: 20px;
 }
 
 nav {
@@ -30,9 +42,9 @@ nav {
   /*border: 1px solid #000;*/
   height: 80px;
   padding: 0 40px;
-  -webkit-box-shadow: 0 8px 6px -6px black;
+  /*-webkit-box-shadow: 0 8px 6px -6px black;
      -moz-box-shadow: 0 8px 6px -6px black;
-          box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;*/
 }
 
 /*nav > ul > li {
@@ -41,10 +53,19 @@ nav {
 
 .button {
   display: inline;
+ /* border: 1px solid #000;*/
+  border-radius: 5px;
+  padding: 25px;
+  margin: 0 10px;
+}
+
+.playagain {
+  display: inline;
   border: 1px solid #000;
   border-radius: 5px;
   padding: 25px;
   margin: 0 10px;
+  background: rgba(102, 45, 145, 0.8)
 }
 
 .left {
@@ -55,6 +76,64 @@ nav {
   float: right;
 }
 
+.clues, .creative {
+  width: 25%;
+  margin: -170px 0 0 20px;
+  /*text-align: center;*/
+  padding: 40px; 
+}
+
+h2, h3 {
+  margin: 2px 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.creative > h2, .clues > h2 {
+  padding-left: 20px;
+}
+
+.creative > h2, .creative > p, .clues > h2, .clues > p {
+  text-shadow: 1px 1px 1px #000;
+}
+/*.clues {
+  background: url(../img/player-1.svg) no-repeat;
+} 
+
+.creative {
+  background: url(../img/player-2.svg) no-repeat;
+}*/
+
+/*player stuff */
+
+.player1, .clues{
+  color: #fff;
+  background: url(../img/player-1.svg) no-repeat;
+}
+.player2, .creative{
+  color: #fff;
+  background: url(../img/player-2.svg) no-repeat;
+}
+.player1:hover, .clues:hover{
+  color: #fff;
+  background: url(../img/player-1-hover.svg) no-repeat;
+}
+.player2:hover, .creative:hover{
+  color: #fff;
+  background: url(../img/player-2-hover.svg) no-repeat;
+}
+
+.newclue {
+  background: url(../img/new-clue.svg) no-repeat;
+  background-size: cover;
+}
+
+#player0Score, #player1Score{
+  font-size: 2em;
+}
 
 #status {
   display: block;
