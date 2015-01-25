@@ -1,11 +1,82 @@
+/* CSS */
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 18px;
+  background: ;
+}
+
+header {
+  /*background: #fff;*/
+}
+
+nav {
+ /* margin: 20px;*/
+  text-align: center;
+  /*border: 1px solid #000;*/
+  height: 80px;
+  padding: 0 40px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+}
+
+/*nav > ul > li {
+  display: inline;
+}*/
+
+.button {
+  display: inline;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 25px;
+  margin: 0 10px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+
+#status {
+  display: block;
+  /*border: 1px solid #000;*/
+  height: 100px;
+  text-align: center;
+  font-size: 5em;
+}
+
+#timer {
+  margin: 0 auto;
+  /*border: 1px solid #000;*/
+}
 
 #majorWord {
-  font-size: 144px;
+  font-size: 8em;
   text-align: center;
+  /*border-bottom: 1px solid #000;*/
+  margin-top: 30px;
+  padding-bottom: 40px;
 }
 
 #minorWord {
-  font-size: 72px;
+  font-size: 6em;
   text-align: center;
 }

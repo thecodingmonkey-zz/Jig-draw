@@ -13,14 +13,14 @@ window.library = {
     ['mammal', 'man', 'elephant', 'whale', 'dog', 'panda', 'kangaroo', 'lion', 'monkey'],
     ['Up', 'house', 'adventure book', 'dog', 'cliffs with waterfall', 'giant bird egg', 'old man walker', 'cone of shame', 'hot air balloon'],
     ['titanic', 'ocean', 'captain\'s hat', 'life saver', 'rose', 'heart of the ocean', 'necklace', 'ship', 'iceberg', 'life vest'],
-    ['Harry Potter and the Goblet of Fire', 'wand', 'dragon', 'train', 'mermaid', 'Hogwartz',  'thunderbolt', 'broomstick', 'goblet of fire'],
+    ['Harry Potter', 'wand', 'dragon', 'train', 'mermaid', 'Hogwartz',  'thunderbolt', 'broomstick', 'goblet of fire'],
     ['Google', 'world', 'computer', 'glasses (google glass)', 'map', 'magnifying glass', 'search bar', 'office', 'chrome icon'],
     ['Great Britain', 'tea', 'telephone booth', 'magna carta', 'Sherlock Holmes', 'Big Ben', 'crown', 'London Bridge', 'palace'],
     ['Charlie Chaplin', 'cane', 'movie theater', 'laughing', 'mustach (hitler-stache', 'bowler hat', 'smile', 'suit', 'curly hair'],
     ['George Washington', 'consititution', 'colonial wig', 'cherry tree', 'ax', 'wooden teeth', 'The White House', 'American Flag', 'dollar bill'],
     ['Aladdin', 'Agrabah', 'Princess Jasmine', 'Abu (sidekick monkey)', 'magic carpet', 'lamp', 'genie', 'turbin', 'Disney'],
     ['New York', 'taxi', 'Empire State Building', 'Times Square', 'New Years Ball Drop', 'Twin Towers', 'airplane', 'large apple', 'statue of liberty'],
-    ['Jesus', 'Devil', 'robes', 'fish', 'donkey', 'crown of thorns', 'angel', 'church', 'bible', 'crucifix']
+    ['Jesus', 'Devil', 'robes', 'fish', 'donkey', 'crown of thorns', 'angel', 'church', 'bible', 'crucifix'],
     ['Astronaut', 'helmet', 'suit', 'stars', 'moon', 'earth from a far', 'satellite', 'rocket', 'saturn'],
     ['Ninja Turtle', 'nunchuks', 'mask', 'pizza', 'sewer', 'Empire State Building', 'ooze', 'sword', 'rat'],
     ['Doctor Who', 'bowtie', 'pinstripe suit', 'scarf', 'stars', 'aliens', 'Big Ben', 'angel', 'telephone box'],
@@ -37,4 +37,4 @@ window.library = {
     ['Aladdin', 'princess', 'monkey', 'flying carpet', 'lamp', 'genie', 'Aladdin', 'Mickey Mouse', 'movie'],
     ['Waikiki', 'beach', 'ocean', 'surfers', 'canoe', 'Diamondhead', 'Duke\'s statue', 'hula dancer', 'Oahu']
   ]  
-}
+};

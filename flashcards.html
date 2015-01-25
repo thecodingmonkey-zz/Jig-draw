@@ -81,15 +81,23 @@
   }
   </script>
 
-  <div id="flashcard">
-    <div id="status">
-      <span id="timer">60</span>
-      <span class="button" onclick="javascript:window.getNewWord();">[New Word]</span>
-      <span class="button" onclick="javascript:window.cycleClues();">[New Clue]</span>
-
+  <header>
+    <div id="status" class="group">
+      <span>:</span><span id="timer">60</span>
+      </div><!--Status div -->
+      <nav class="group">
+         <!-- <ul>
+          <li class="button" onclick="javascript:window.getNewWord();">New Word</li>
+          <li class="button" onclick="javascript:window.cycleClues();">New Clue</li>
+        </ul> -->
+        <span class="button left" onclick="javascript:window.getNewWord();">Correct!</span>
+          <span class="button right" onclick="javascript:window.cycleClues();">New Clue</span>
+        </nav>
+    </header>
+    <div class="container">
+      <div id="majorWord">Foo</div>
+      <div id="minorWord">Bar</div>
     </div>
-    <div id="majorWord">Foo</div>
-    <div id="minorWord">Bar</div>
   </div>
 </body>
 </html>
