@@ -20,7 +20,7 @@
       document.getElementById('timer').innerHTML = timer;
 
       if (timer <= 0) {
-        window.playsound('woopow');
+        window.playLoser();
         document.getElementById('timer').innerHTML = 60;
 //        alert('Time is up!');
         window.getNewWord();
@@ -120,11 +120,11 @@
           break;
         case 37:  // left
           window.incrementPlayerScore(0);
-          window.playsound('likeabaws');
+          window.playWinner();
           break;
         case 39:  // right
           window.incrementPlayerScore(1);
-          window.playsound('likeabaws');
+          window.playWinner();
           break;
       }
     }
@@ -152,6 +152,18 @@
         audio.play();
 
       }
+    }
+    window.playWinner = function () {
+      var soundFiles = [ 'likeabaws', 'woopow' ];
+      var index = Math.floor(Math.random() * soundFiles.length);
+      var audio = new Audio('./sounds/'+soundFiles[index]+'.wav');
+      audio.play();
+    }
+    window.playLoser = function () {
+      var soundFiles = [ 'Deadmario', 'Stupid' ];
+      var index = Math.floor(Math.random() * soundFiles.length);
+      var audio = new Audio('./sounds/'+soundFiles[index]+'.wav');
+      audio.play();
     }
   }
   </script>
