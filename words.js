@@ -20,7 +20,7 @@ window.library = {
     ['George Washington', 'consititution', 'colonial wig', 'cherry tree', 'ax', 'wooden teeth', 'The White House', 'American Flag', 'dollar bill'],
     ['Aladdin', 'Agrabah', 'Princess Jasmine', 'Abu (sidekick monkey)', 'magic carpet', 'lamp', 'genie', 'turbin', 'Disney'],
     ['New York', 'taxi', 'Empire State Building', 'Times Square', 'New Years Ball Drop', 'Twin Towers', 'airplane', 'large apple', 'statue of liberty'],
-    ['Jesus', 'Devil', 'robes', 'fish', 'donkey', 'crown of thorns', 'angel', 'church', 'bible', 'crucifix']
+    ['Jesus', 'Devil', 'robes', 'fish', 'donkey', 'crown of thorns', 'angel', 'church', 'bible', 'crucifix'],
     ['Astronaut', 'helmet', 'suit', 'stars', 'moon', 'earth from a far', 'satellite', 'rocket', 'saturn'],
     ['Ninja Turtle', 'nunchuks', 'mask', 'pizza', 'sewer', 'Empire State Building', 'ooze', 'sword', 'rat'],
     ['Doctor Who', 'bowtie', 'pinstripe suit', 'scarf', 'stars', 'aliens', 'Big Ben', 'angel', 'telephone box'],
