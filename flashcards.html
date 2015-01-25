@@ -9,7 +9,7 @@
   <script src="words.js"></script>
   <script language="javascript">
   window.onload = function() {
-    getNewWord();
+//    window.getNewWord();
     window.setTimeout(function() {window.update();}, 1000);
 
     window.update = function() {
@@ -24,7 +24,7 @@
       }
 
       if (timer <= 0) {
-        getNewWord();
+        window.getNewWord();
         document.getElementById('timer').innerHTML = 60;
       }
 
@@ -33,7 +33,7 @@
 
     var currentWord;
 
-    function getNewWord() {
+    window.getNewWord = function() {
       var numWords = window.library.words.length;
       var newWord = Math.floor(Math.random() * numWords);
       currentWord = newWord;
@@ -63,10 +63,18 @@
   </script>
 </head>
 <body>
+  <script type="text/javascript">
+  function getNewWord() {
+    window.getNewWord();
+
+  }
+  </script>
+
   <div id="flashcard">
     <div id="status">
       <span id="timer">60</span>
-      <span class="button" onclick="javascript:getNewWord()">[New Word]</span>
+      <span class="button" onclick="javascript:window.getNewWord();">[New Word]</span>
+      <span class="button" onclick="javascript:window.getNewClue();">[New Clue]</span>
 
     </div>
     <div id="majorWord">Foo</div>
