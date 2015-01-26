@@ -138,7 +138,9 @@
           break;
         case 38:
         case 40:
+          window.bgaudio.pause();
           alert('pause');
+          window.bgaudio.play();
           break;
         case 37:  // left
           window.incrementPlayerScore(0);
@@ -176,11 +178,11 @@
       }
     }
     window.playWinner = function () {
-      var soundFiles = [ 'likeabaws', 'woopow' ];
+      var soundFiles = [ 'likeabaws', 'woopow', 'drawesome', 'jiggy', 'heehee' ];
       window.playAudio(soundFiles);
     }
     window.playLoser = function () {
-      var soundFiles = [ 'Deadmario', 'Stupid' ];
+      var soundFiles = [ 'Deadmario', 'Stupid', 'bingo', 'vansuck', 'supersorryo', 'loserville', 'tweetledumb', '99problems', 'gotosleep', 'knockknock' ];
       window.playAudio(soundFiles);
     }
     window.playAudio = function (soundFiles) {
