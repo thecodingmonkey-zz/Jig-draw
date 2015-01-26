@@ -135,6 +135,15 @@ p {
   font-size: 2em;
 }
 
+.score1, .score2 {
+  font-size: 2em;
+  color: #000;
+}
+
+.playagain {
+  color: #fff;
+}
+
 #status {
   display: block;
   /*border: 1px solid #000;*/
